@@ -154,3 +154,33 @@ button:hover {
     margin-top: 1rem;
     font-size: 0.9rem;
 }
+
+/* Dashboard */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-weight: 300;
+}
+
+.dashboard-header h1 span {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+#logoutBtn {
+    background: transparent;
+    border: 1px solid #e74c3c;
+    color: #e74c3c;
+    padding: 0.5rem 1rem;
+}
+
+#logoutBtn:hover {
+    background: #e74c3c;
+    color: white;
+}
