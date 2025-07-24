@@ -16,3 +16,18 @@ auth.onAuthStateChanged(async (user) => {
         }
     }
 });
+
+document.getElementById('updateForm')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const newAge = document.getElementById('newAge').value;
+    
+    try {
+        await updateDoc(doc(db, "users", auth.currentUser.uid), {
+            age: newAge
+        });
+        alert("¡Perfil actualizado!");
+        location.reload(); // Recargar para ver cambios
+    } catch (error) {
+        console.error("Error al actualizar:", error);
+    }
+});
