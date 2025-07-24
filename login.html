@@ -13,11 +13,14 @@
     <div class="auth-container">
         <div class="auth-card">
             <h2>Iniciar Sesión</h2>
+            <!-- Dentro de <div class="auth-card"> (login.html) -->
             <form id="loginForm">
                 <input type="email" id="email" placeholder="Correo electrónico" required>
                 <input type="password" id="password" placeholder="Contraseña" required>
                 <button type="submit">Acceder</button>
             </form>
+            <!-- Añade esto debajo del formulario -->
+            <div id="loginStatus" class="status-message"></div> <!-- Nuevo: Contenedor de mensajes -->
             <p>¿No tienes cuenta? <a href="signup.html">Regístrate aquí</a>.</p>
             <div id="loginError" class="error-message"></div>
         </div>
