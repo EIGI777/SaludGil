@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salud Integral</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- SDK Firebase (añade esto antes de tu script) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a Salud Integral</h1>
+        <p>Tu guía para un estilo de vida saludable</p>
+    </header>
+
+    <main>
+        <!-- Sección de Información -->
+        <section class="info-section">
+            <h2>Áreas de Salud</h2>
+            <div class="health-card">
+                <h3>Nutrición</h3>
+                <p>Consejos para una alimentación balanceada y recetas saludables.</p>
+            </div>
+            <div class="health-card">
+                <h3>Ejercicio</h3>
+                <p>Rutinas adaptadas a todos los niveles.</p>
+            </div>
+            <div class="health-card">
+                <h3>Salud Mental</h3>
+                <p>Técnicas de mindfulness y manejo del estrés.</p>
+            </div>
+        </section>
+
+        <!-- Botones de Auth -->
+        <section class="auth-section">
+            <button id="loginBtn">Iniciar Sesión</button>
+            <button id="signupBtn">Registrarse</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Salud Integral. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="firebase-config.js"></script> <!-- Configuración de Firebase -->
+    <script src="app.js"></script> <!-- Lógica de autenticación -->
+</body>
+</html>
