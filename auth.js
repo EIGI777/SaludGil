@@ -17,12 +17,20 @@ document.getElementById('loginForm')?.addEventListener('submit', (e) => {
 });
 
 // Registro
+// En auth.js (dentro del evento de registro)
 document.getElementById('signupForm')?.addEventListener('submit', (e) => {
     e.preventDefault();
+    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     auth.createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+            // Guardar el nombre en Firestore (o en el perfil de Auth)
+            return userCredential.user.updateProfile({
+                displayName: name
+            });
+        })
         .then(() => {
             window.location.href = "dashboard.html";
         })
