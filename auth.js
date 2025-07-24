@@ -36,25 +36,35 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
     }
 });
 
-// Registro
-// En auth.js (dentro del evento de registro)
-document.getElementById('signupForm')?.addEventListener('submit', (e) => {
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// Inicializar Firestore
+const db = getFirestore();
+
+document.getElementById('signupForm')?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    const gender = document.getElementById('gender').value;
+    const age = document.getElementById('age').value;
 
-    auth.createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Guardar el nombre en Firestore (o en el perfil de Auth)
-            return userCredential.user.updateProfile({
-                displayName: name
-            });
-        })
-        .then(() => {
-            window.location.href = "dashboard.html";
-        })
-        .catch((error) => {
-            document.getElementById('signupError').textContent = error.message;
+    try {
+        // 1. Crear usuario en Firebase Auth
+        const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+        
+        // 2. Guardar datos adicionales en Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+            name,
+            email,
+            gender,
+            age,
+            createdAt: new Date()
         });
+
+        // 3. Redirigir al dashboard
+        window.location.href = "dashboard.html";
+    } catch (error) {
+        document.getElementById('signupError').textContent = `Error: ${error.message}`;
+    }
 });
