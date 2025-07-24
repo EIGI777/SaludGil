@@ -43,5 +43,22 @@
     <!-- Scripts -->
     <script src="firebase-config.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Redirección a login/signup
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            window.location.href = "login.html";
+        });
+
+        document.getElementById('signupBtn').addEventListener('click', () => {
+            window.location.href = "signup.html";
+        });
+
+        // Opcional: Verificar si el usuario ya está logueado
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                window.location.href = "dashboard.html"; // Redirige si ya inició sesión
+            }
+        });
+    </script>
 </body>
 </html>
