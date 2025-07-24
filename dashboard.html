@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SaludGil</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script> <!-- Para futuras funcionalidades -->
+</head>
+<body>
+    <div class="container">
+        <!-- Header con nombre de usuario -->
+        <header class="dashboard-header">
+            <h1>Bienvenido, <span id="userName"></span>!</h1>
+            <button id="logoutBtn">Cerrar Sesión</button>
+        </header>
+
+        <!-- Secciones de salud (como en index.html) -->
+        <div class="health-grid">
+            <div class="health-card">
+                <h3>Nutrición</h3>
+                <p>Guías de alimentación saludable.</p>
+            </div>
+            <div class="health-card">
+                <h3>Ejercicio</h3>
+                <p>Rutinas personalizadas.</p>
+            </div>
+            <div class="health-card">
+                <h3>Bienestar</h3>
+                <p>Gestión del estrés.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="firebase-config.js"></script>
+    <script src="dashboard.js"></script> <!-- Nuevo archivo para la lógica -->
+</body>
+</html>
