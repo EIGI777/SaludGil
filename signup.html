@@ -14,10 +14,17 @@
         <div class="auth-card">
             <h2>Crear Cuenta</h2>
             <form id="signupForm">
+                <!-- Dentro de <form id="signupForm"> (signup.html) -->
                 <input type="text" id="name" placeholder="Nombre completo" required>
                 <input type="email" id="email" placeholder="Correo electrónico" required>
                 <input type="password" id="password" placeholder="Contraseña (mínimo 6 caracteres)" required>
-                <button type="submit">Registrarse</button>
+                <select id="gender" required>
+                    <option value="" disabled selected>Género</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <input type="number" id="age" placeholder="Edad" min="1" max="120" required>
             </form>
             <p>¿Ya tienes cuenta? <a href="login.html">Inicia sesión aquí</a>.</p>
             <div id="signupError" class="error-message"></div>
